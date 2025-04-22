@@ -1,0 +1,107 @@
+.sidebar {
+    background-color: black;
+    height: 100%;
+    position: fixed;
+    width: 250px;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.sidebar .navbar-brand {
+    font-size: 1.5em;
+    margin: 1rem;
+}
+
+.sidebar ul {
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+.sidebar ul li a:hover {
+    background-color:rgb(24, 11, 90);
+    text-decoration: none;
+}
+
+.cool:hover{
+    color: white;
+}
+
+.toggle-button {
+    display: none;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 2rem;
+}
+img{
+    width: 100px;
+    border-radius: 90px;
+    background-color: #218838;
+}
+
+.greenandblue{
+    display: flex;
+}
+.blue{
+    background-color: blue;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 600px;
+}
+
+.green{
+    background-color: #218838;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-right: 5px;
+    width: 600px;
+}
+
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        display: none;
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+
+    .sidebar.active {
+        display: block;
+        overflow: scroll;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .toggle-button {
+        display: block;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 1rem;
+        cursor: pointer;
+    }
+}
+
+/* Additional margin for content */
+.content h2, .content p {
+    margin-right: 20px;
+}
