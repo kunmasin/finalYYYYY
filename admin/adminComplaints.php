@@ -75,8 +75,8 @@ $result = $conn->query($sql);
                             <ul class="navbar-nav flex-column">
                                 <li class="nav-item"><a href="..\admin\adminDashboard.php" class="nav-link cool p-2 mb-4 sidebar-link current"><i class="fas fa-home text-light fa-lg mr-3"></i>DASHBOARD</a></li>
                                 <li class="nav-item"><a href="..\admin\adminUsers.php" class="nav-link cool p-2 mb-4 sidebar-link current"><i class="fas fa-home text-light fa-lg mr-3"></i>USERS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminGeneralNotice.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>GENERAL NOTICE</a></li>
                                 <li class="nav-item"><a href="..\admin\adminComplaints.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i> GENERAL COMPLAINTS</a></li>
+                                <li class="nav-item"><a href="..\admin\adminGenerateReport.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>GENERATE REPORT</a></li>
                                 <li class="nav-item"><a href="..\admin\adminStudents.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i> STUDENTS</a></li>
                                 <li class="nav-item"><a href="..\admin\adminLecturers.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i> LECTURERS</a></li>
                                 <li class="nav-item"><a href="..\admin\adminSettings.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i> SETTINGS</a></li>
@@ -87,10 +87,12 @@ $result = $conn->query($sql);
             <div class="content">
     <div class="container text-center">
         <h1>Admin Complaints</h1>
-        <table class="table text-left">
+        <table class="table table-striped text-left">
             <thead>
                 <tr>
+                    <th>Complaint ID</th>
                     <th>Lecturer Reporting</th>
+                    <th>Student Name </th>
                     <th>Offence</th>
                     <th>Details of offence</th>
                     <th>Date</th>
@@ -103,12 +105,14 @@ $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
+                        echo "<td>" . $row['complaint_id'] . "</td>";
                         echo "<td>" . $row['lecturer_name'] . "</td>";
+                        echo "<td>" . $row['student_name'] . "</td>";
                         echo "<td>" . $row['student_offence'] . "</td>";
                         echo "<td>" . $row['complaint_details'] . "</td>";
                         echo "<td>" . $row['complaint_date'] . "</td>";
                         echo "<td>" . $row['status'] . "</td>";
-                        echo "<td><button class='bg-success text-white'><a href='verify_complaint.php?id=" . $row['complaint_id'] . "' class='text-white'>Verify</a></button> | <button class='bg-warning text-dark'><a href='reject_complaint.php?id=" . $row['complaint_id'] . "' class='text-dark'>Reject</a></button></td>";
+                        echo "<td><button class=' btn btn-primary text-white d-flex'><a href='verify_complaint.php?id=" . $row['complaint_id'] . "' class='text-white'>Verify</a> /<b class='invisible'>space</b> <a href='reject_complaint.php?id=" . $row['complaint_id'] . "' class='text-white'>Reject</a></button></td>";
                         echo "</tr>";
                     }
                 } else {

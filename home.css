@@ -5,7 +5,7 @@ body {
     padding: 0;
 }
 .background {
-    background: linear-gradient(rgba(0, 191, 255, 0.4), rgba(0, 0, 0, 0.9)), url("imgs/Law.jpg");
+    background: linear-gradient(rgba(50, 89, 27, 0.7), rgba(0, 0, 0, 0.9)), url("imgs/Law.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     align-items: center;
@@ -22,7 +22,7 @@ body {
     text-align: left;
 }
 p a{
-   color: #0dcaf0;
+   color: green;
 }
 .content {
     background-color: rgba(255, 255, 255, 0.9);
@@ -51,17 +51,17 @@ p a{
     transition: background-color 0.3s ease;
 }
 .btn-primary {
-    background-color: #0dcaf0;
+    background-color: green;
     color: rgb(255, 255, 255);
 }
 .e.btn-primary{
-    background-color: #0dcaf0;
+    background-color: green;
     color: white;
     padding: 3px;
     width: 100px;
 }
 .btn-secondary {
-    background-color: #0dcaf0;
+    background-color: green;
     color: rgb(255, 255, 255);
 }
 .content a:hover {
@@ -78,13 +78,13 @@ p a{
     margin-top: 10px;
 }
 .white-line{
-    background-color: #0dcaf0;
+    background-color: green;
     height: 5px;
     margin-bottom: 10px;
-    border: 2px solid #0dcaf0;
+    border: 2px solid green;
 }
 .developer a{
-    color: #0dcaf0;
+    color: wheat;
     text-decoration: none;
 }
 
@@ -102,7 +102,7 @@ p a{
     border-top-right-radius: 0px;
 }
 .foot {
-    background-color: #070e09;
+    background-color: #086021;
     padding: 15px 0;
     text-align: center;
     color: white;

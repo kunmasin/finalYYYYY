@@ -13,7 +13,7 @@
    
 </head>
 <body>
-<div class="container-fluid background">
+<div class="container background">
     <div class="main-text text-light">
         <h1>DIRECTORY OF STUDENTS DISCIPLINARY ACTIONS</h1>
         <p>Welcome to the Student Disciplinary Portal. On this platform, you will be notified about everything necessary to hone your career in your respective programs. Students are advised to regularly check their notice board in the dashboard to stay informed about any judgments or decisions regarding them.</p>
@@ -24,29 +24,29 @@
     <div class="row images-center text-center text-white mt-5">
         <div class="col-lg-4">
             <img src="../finalYYYYY/imgs/240_F_890163366_cCTbR1rlUXTI2LoiuXKV6fzN38TwBxf6.jpg" alt="">
-            <button class="btn btn-info" style="width:100%">Consistent Counselling About School Rules</button>
+            <button class="btn btn-success" style="width:100%">Consistent Counselling About School Rules</button>
         </div>
 
         <div class="col-lg-4">
             <img src="../finalYYYYY/imgs/360_F_682344376_s9iKLE7uSMp65us55EzTLZ86oE4lgkXb.webp" alt="">
-            <button class="btn btn-info" style="width:100%">Available Books about School Rules</button>
+            <button class="btn btn-success" style="width:100%">Available Books about School Rules</button>
         </div>
 
         <div class="col-lg-4">
             <img src="../finalYYYYY/imgs/360_F_938850988_tlJflwyhavoCygiMHomeIle57ahoeSKc.webp" alt="">
-            <button class="btn btn-info" style="width:100%">Available Panel to Adderess Violations</button>
+            <button class="btn btn-success" style="width:100%">Available Panel to Adderess Violations</button>
         </div>
     </div>
 
-    <a href="..\finalYYYYY\students\student_register.php" class="btn btn-info">REGISTER</a>
-    <a href="..\finalYYYYY\students\student_login.php" class="btn btn-info">LOGIN</a>
+    <a href="..\finalYYYYY\students\student_register.php" class="btn btn-success">REGISTER</a>
+    <a href="..\finalYYYYY\students\student_login.php" class="btn btn-success">LOGIN</a>
 </div>
 <!--Start-->
-<div class="col-xl-12 col-sm-12 white-line">
+<div class="col-xl-12 container col-sm-12 white-line">
 
 </div>
 <!--End-->
-<div class="container-fluid" style="margin-bottom: 20px;">
+<div class="container" style="margin-bottom: 20px;">
     <div class="row text-center">
         <div class="col-xl-6 col-sm-12">
             <img style="width:100%; height: 300px; margin-left: -20px;"  class="img-responsive img-fluid" src="..\finalYYYYY\imgs\Law.jpg" alt="">
@@ -60,7 +60,7 @@
         </div>
     </div>
 </div>
-    <div class="container-fluid text-dark">
+    <div class="container text-dark">
         <div class="row text-center">
             <div style="height: 300px; padding: 20px;" class="col-xl-6 col-sm-12">
                 <h1>FEAUTURES</h1>
@@ -131,11 +131,11 @@
     </div>
 </div>
 <!--End-->
-<div class="foot">
+<div class="foot container">
 <footer class="text-center">&#169; <span style="font-size: 15px;"><?php 
                                         date_default_timezone_set("Africa/Lagos");
                                         $today=  date("Y")." Students Disciplinary Actions :";
-                                        echo $today?></span> <span>Developed By: <a class="developer text-info" href="https://we-solve-it.netlify.app/">WE-SOLVE-IT SOLUTIONS</a></span> </footer>
+                                        echo $today?></span> <span>Developed By: <a class="developer text-white" href="https://we-solve-it.netlify.app/">WE-SOLVE-IT SOLUTIONS</a></span> </footer>
 
 </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

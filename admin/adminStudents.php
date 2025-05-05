@@ -72,8 +72,8 @@ $result = $conn->query($sql);
                             <ul class="navbar-nav flex-column">
                                 <li class="nav-item"><a href="..\admin\adminDashboard.php" class="nav-link cool p-2 mb-4 sidebar-link current"><i class="fas fa-home text-light fa-lg mr-3"></i>DASHBOARD</a></li>
                                 <li class="nav-item"><a href="..\admin\adminUsers.php" class="nav-link cool p-2 mb-4 sidebar-link current"><i class="fas fa-home text-light fa-lg mr-3"></i>USERS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminGeneralNotice.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>GENERAL NOTICE</a></li>
                                 <li class="nav-item"><a href="..\admin\adminComplaints.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i> GENERAL COMPLAINTS</a></li>
+                                <li class="nav-item"><a href="..\admin\adminGenerateReport.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>GENERATE REPORT</a></li>
                                 <li class="nav-item"><a href="..\admin\adminStudents.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i> STUDENTS</a></li>
                                 <li class="nav-item"><a href="..\admin\adminLecturers.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i> LECTURERS</a></li>
                                 <li class="nav-item"><a href="..\admin\adminSettings.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i> SETTINGS</a></li>

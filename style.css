@@ -70,6 +70,9 @@ img{
     width: 600px;
 }
 
+.invisible{
+    color: rgba(255, 255, 255, 0);
+}
 
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {

@@ -64,7 +64,7 @@
         </div>
 
 
-        <h6 class="text-center"> If you have not registered already, click on the link --> <a class="text-danger" href="..\students\student_register.php">REGISTER</a></h6>
+        <h6 class="text-center"> If you have not registered already, click on the link --> <a class="text-danger" href="..\students\student_register.php">REGISTER</a>  or <a class="text-danger" href="..\students\forget_password.php">FORGET PASSWORD</a> </h6>
 
         <footer class="text-center">&#169; <span style="font-size: 15px;"><?php 
                                         date_default_timezone_set("Africa/Lagos");
