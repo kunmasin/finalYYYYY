@@ -68,28 +68,30 @@ $result = $conn->query($sql);
 
                         <!-- Sidebar-->
                         <div class="col-xl-2 col-xl-2 col-xl-2 col-md-4 fixed-top sidebar" id="sidebar">
+                            <img src="../imgs/Ahman.webp" class="school-logo" alt="">
                             <h1 class="navbar-brand text-light d-block mx-auto  py-3 mb-4 bottom-border" style="font-size: 15px;">ADMIN DASHBOARD</h1>
                             <div class="bottom-border pb-3">
-                            <h6 class="text-light"><?php echo $user['usernames'] ?></h6>
+                            <!--<h6 class="text-light"><?php echo $user['fullname'] ?></h6>-->
                             </div>
                             <ul class="navbar-nav flex-column">
-                                <li class="nav-item"><a href="..\admin\adminDashboard.php" class="nav-link cool p-2 mb-4 sidebar-link current"><i class="fas fa-home text-light fa-lg mr-3"></i>DASHBOARD</a></li>
-                                <li class="nav-item"><a href="..\admin\adminUsers.php" class="nav-link cool p-2 mb-4 sidebar-link current"><i class="fas fa-home text-light fa-lg mr-3"></i>USERS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminComplaints.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i> GENERAL COMPLAINTS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminGenerateReport.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>GENERATE REPORT</a></li>
-                                <li class="nav-item"><a href="..\admin\adminStudents.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i> STUDENTS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminLecturers.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i> LECTURERS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminSettings.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i> SETTINGS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminLogout.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-file-alt text-light fa-lg mr-3"></i> LOGOUT</a></li>
+                                <li class="nav-item"><a href="..\admin\adminDashboard.php" class="nav-link cool p-2 mb-3 sidebar-link current"><i class="fas fa-home text-light fa-lg mr-3"></i>DASHBOARD</a></li>
+                                <!--<li class="nav-item"><a href="..\admin\adminUsers.php" class="nav-link cool p-2 mb-3 sidebar-link current"><i class="fas fa-user text-light fa-lg mr-3"></i>USERS</a></li>-->
+                                <li class="nav-item"><a href="..\admin\adminComplaints.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i> COMPLAINTS</a></li>
+                                <li class="nav-item"><a href="..\admin\adminGenerateReport.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-file text-light fa-lg mr-3"></i>GENERATE REPORT</a></li>
+                                <li class="nav-item"><a href="..\admin\adminStudents.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-users text-light fa-lg mr-3"></i> STUDENTS</a></li>
+                                <li class="nav-item"><a href="..\admin\adminLecturers.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-users text-light fa-lg mr-3"></i> LECTURERS</a></li>
+                                <li class="nav-item"><a href="..\admin\adminSettings.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i> SETTINGS</a></li>
+                                <li class="nav-item"><a href="..\admin\adminLogout.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-file-alt text-light fa-lg mr-3"></i> LOGOUT</a></li>
                             </ul>
                          </div>
-                       
+                         
             <div class="content">
     <div class="container text-center">
         <h1>Admin Complaints</h1>
         <table class="table table-striped text-left">
             <thead>
                 <tr>
+                    <th>List Number</th>
                     <th>Complaint ID</th>
                     <th>Lecturer Reporting</th>
                     <th>Student Name </th>
@@ -98,13 +100,16 @@ $result = $conn->query($sql);
                     <th>Date</th>
                     <th>Status</th>
                     <th>Action</th>
+                    <th>Make Judgement</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
+                $sn = 1;
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
+                        echo "<td>" . $sn++ . "</td>";
                         echo "<td>" . $row['complaint_id'] . "</td>";
                         echo "<td>" . $row['lecturer_name'] . "</td>";
                         echo "<td>" . $row['student_name'] . "</td>";
@@ -113,6 +118,7 @@ $result = $conn->query($sql);
                         echo "<td>" . $row['complaint_date'] . "</td>";
                         echo "<td>" . $row['status'] . "</td>";
                         echo "<td><button class=' btn btn-primary text-white d-flex'><a href='verify_complaint.php?id=" . $row['complaint_id'] . "' class='text-white'>Verify</a> /<b class='invisible'>space</b> <a href='reject_complaint.php?id=" . $row['complaint_id'] . "' class='text-white'>Reject</a></button></td>";
+                        echo "<td><button class='btn btn-danger text-white'><a class='text-white' href='adminJudgement.php'>Make Judgement</a></button></td>";
                         echo "</tr>";
                     }
                 } else {

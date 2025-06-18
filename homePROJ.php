@@ -13,12 +13,14 @@
    
 </head>
 <body>
-<div class="container background">
-    <div class="main-text text-light">
+<div class="background">
+    <div class="text-light">
         <h1>DIRECTORY OF STUDENTS DISCIPLINARY ACTIONS</h1>
-        <p>Welcome to the Student Disciplinary Portal. On this platform, you will be notified about everything necessary to hone your career in your respective programs. Students are advised to regularly check their notice board in the dashboard to stay informed about any judgments or decisions regarding them.</p>
-        <p>Dear Students, we want to reassure you that all disciplinary actions at our institution are conducted with the utmost fairness and transparency. Our goal is not to punish but to guide you toward making better choices in the future. Every case is carefully reviewed, and all decisions are made with your best interests in mind. We believe in learning from mistakes and are committed to supporting you throughout this process.</p>
-        <p>Additionally, we understand that everyone makes mistakes, and we are here to support you through any challenges you may face. Disciplinary actions are not meant to define you but to help you learn and grow. We are committed to ensuring that every decision is made with fairness, compassion, and a focus on your development. Your success is our ultimate goal.</p>
+        <div class="row">
+            <p class="col-lg-12 col-sm-6">Welcome to the Student Disciplinary Portal. On this platform, you will be notified about everything necessary to hone your career in your respective programs. Students are advised to regularly check their notice board in the dashboard to stay informed about any judgments or decisions regarding them.</p>
+            <p class="col-lg-12 col-sm-6">Dear Students, we want to reassure you that all disciplinary actions at our institution are conducted with the utmost fairness and transparency. Our goal is not to punish but to guide you toward making better choices in the future. Every case is carefully reviewed, and all decisions are made with your best interests in mind. We believe in learning from mistakes and are committed to supporting you throughout this process.</p>
+            <p class="col-lg-12 col-sm-6">Additionally, we understand that everyone makes mistakes, and we are here to support you through any challenges you may face. Disciplinary actions are not meant to define you but to help you learn and grow. We are committed to ensuring that every decision is made with fairness, compassion, and a focus on your development. Your success is our ultimate goal.</p>
+        </div>
     </div>
 
     <div class="row images-center text-center text-white mt-5">
@@ -42,11 +44,11 @@
     <a href="..\finalYYYYY\students\student_login.php" class="btn btn-success">LOGIN</a>
 </div>
 <!--Start-->
-<div class="col-xl-12 container col-sm-12 white-line">
+<div class="col-xl-12 col-sm-12 white-line">
 
 </div>
 <!--End-->
-<div class="container" style="margin-bottom: 20px;">
+<div class="" style="margin-bottom: 20px;">
     <div class="row text-center">
         <div class="col-xl-6 col-sm-12">
             <img style="width:100%; height: 300px; margin-left: -20px;"  class="img-responsive img-fluid" src="..\finalYYYYY\imgs\Law.jpg" alt="">
@@ -60,14 +62,14 @@
         </div>
     </div>
 </div>
-    <div class="container text-dark">
+
+    <div class="text-dark">
         <div class="row text-center">
-            <div style="height: 300px; padding: 20px;" class="col-xl-6 col-sm-12">
+            <div style="height: 300px; padding: 20px;" class="col-xl-6 col-sm-12 mb-4 mt-4">
                 <h1>FEAUTURES</h1>
                 <p>COMPREHENSIVE LISTINGS: Search through a robust databaseof disciplinary actions across various institutions</p>
                 <p>USER FRIENDLY INTERFACE: Easily navigate and filter results by school, type of violation, and date. </p>
                 <p>CONFIDENTIALITY ASSURED: All entries respect student privacy while poviding necessary information.</p>
-        
             </div>
             <div class="col-xl-6 col-sm-12">
             <img style="width:100%; height: 300px; margin-right: -20px;" class="img-responsive" src="..\finalYYYYY\imgs\books.jpg" alt="">
@@ -82,7 +84,7 @@
 <!--End-->
 
 <!-- Start-->
-<div class="container black">
+<div class="container-fluid black">
 <h1 class="pt-5">HOW IT WORKS</h1>
 <div class="row justify-content pt-5">
     <p class="col-xl-4 col-sm-12"><b>Search:</b> Enter the name of the institution or relevant keywords to find specific cases.</p>
@@ -94,7 +96,7 @@
 
 
 <!--Start-->
-<div class="container black">
+<div class="container-fluid black">
     <h1>FAQs</h1>
     <div class="row">
         <div class="col-xl-6 col-sm-12">
@@ -111,7 +113,7 @@
 <!--End-->
 
 <!--Start-->
-<div class="container black">
+<div class="container-fluid black">
     <div class="row">
         <div class="col-xl-4 col-sm-12">
             <h1>Get Involved</h1>
@@ -120,7 +122,7 @@
 
         <div class="col-xl-4 col-sm-12">
             <h1>Contact Us</h1>
-            <p>Have questions or suggestions? Reach out to us at <a href="mailto:oniyeabdulahi00@gmail.com">APU DISCIPLINARY.COM</a> or <a href="mailto:oniyeabdullahi0@gmail.com">apudisciplinary@gmail.com</a></p>
+            <p>Have questions or suggestions? Reach out to us at <a href="https://portal.apu.edu.ng/">APU Portal</a> or <a href="mailto:oniyeabdullahi0@gmail.com">apudisciplinary@gmail.com</a></p>
         </div>
 
         <div class="col-xl-4 col-sm-12">
@@ -131,7 +133,7 @@
     </div>
 </div>
 <!--End-->
-<div class="foot container">
+<div class="foot">
 <footer class="text-center">&#169; <span style="font-size: 15px;"><?php 
                                         date_default_timezone_set("Africa/Lagos");
                                         $today=  date("Y")." Students Disciplinary Actions :";

@@ -38,13 +38,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "UPDATE admin_users SET fullname=fullname, usernames=usernames, email=email, position=position, gender=gender, phone_number=phone_number, address=address  WHERE usernames = usernames ";
+#$sql = "UPDATE admin_users SET fullname=fullname, usernames=usernames, email=email, position=position, gender=gender, phone_number=phone_number, address=address  WHERE usernames = usernames ";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
-} else {
-    echo "Error updating record: " . $conn->error;
-}
+#if ($conn->query($sql) === TRUE) {
+ #   echo "Record updated successfully";
+#} else {
+ #   echo "Error updating record: " . $conn->error;
+#}
 
 $conn->close();
 ?>
@@ -69,27 +69,24 @@ $conn->close();
         </button>
 
                         <!-- Sidebar-->
-                        <div class="col-xl-2 col-xl-2 col-xl-2 col-md-4 fixed-top sidebar" id="sidebar">
+                       <div class="col-xl-2 col-xl-2 col-xl-2 col-md-4 fixed-top sidebar" id="sidebar">
+                            <img src="../imgs/Ahman.webp" class="school-logo" alt="">
                             <h1 class="navbar-brand text-light d-block mx-auto  py-3 mb-4 bottom-border" style="font-size: 15px;">ADMIN DASHBOARD</h1>
                             <div class="bottom-border pb-3">
-                            <h6 class="text-light"><?php echo $user['usernames'] ?></h6>
+                            <!--<h6 class="text-light"><?php echo $user['fullname'] ?></h6>-->
                             </div>
                             <ul class="navbar-nav flex-column">
-                               
-                                <li class="nav-item"><a href="..\admin\adminDashboard.php" class="nav-link cool p-2 mb-4 sidebar-link current"><i class="fas fa-home text-light fa-lg mr-3"></i>DASHBOARD</a></li>
-                                <li class="nav-item"><a href="..\admin\adminUsers.php" class="nav-link cool p-2 mb-4 sidebar-link current"><i class="fas fa-home text-light fa-lg mr-3"></i>USERS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminComplaints.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i> GENERAL COMPLAINTS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminGenerateReport.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>GENERATE REPORT</a></li>
-                                <li class="nav-item"><a href="..\admin\adminStudents.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i> STUDENTS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminLecturers.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i> LECTURERS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminSettings.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i> SETTINGS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminLogout.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-file-alt text-light fa-lg mr-3"></i> LOGOUT</a></li> 
+                                <li class="nav-item"><a href="..\admin\adminDashboard.php" class="nav-link cool p-2 mb-3 sidebar-link current"><i class="fas fa-home text-light fa-lg mr-3"></i>DASHBOARD</a></li>
+                                <!--<li class="nav-item"><a href="..\admin\adminUsers.php" class="nav-link cool p-2 mb-3 sidebar-link current"><i class="fas fa-user text-light fa-lg mr-3"></i>USERS</a></li>-->
+                                <li class="nav-item"><a href="..\admin\adminComplaints.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i> COMPLAINTS</a></li>
+                                <li class="nav-item"><a href="..\admin\adminGenerateReport.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-file text-light fa-lg mr-3"></i>GENERATE REPORT</a></li>
+                                <li class="nav-item"><a href="..\admin\adminStudents.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-users text-light fa-lg mr-3"></i> STUDENTS</a></li>
+                                <li class="nav-item"><a href="..\admin\adminLecturers.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-users text-light fa-lg mr-3"></i> LECTURERS</a></li>
+                                <li class="nav-item"><a href="..\admin\adminSettings.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i> SETTINGS</a></li>
+                                <li class="nav-item"><a href="..\admin\adminLogout.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-file-alt text-light fa-lg mr-3"></i> LOGOUT</a></li>
                             </ul>
                          </div>
-                       
-
-                            </ul>
-                         </div>
+                         
                          <div class="content">
             <div class="container text-center">
             <h1 class="text-dark page-header">ACCOUNT SETTINGS</h1>
@@ -97,29 +94,29 @@ $conn->close();
             <div class="container">
             
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter Your Full Name" required value="<?php echo $user['fullname'] ?>"><br>
+                <input type="text" class="form-control" placeholder="Enter Your Full Name" required value="<?php echo $user['fullname'] ?>" readonly><br>
             </div>
             
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter Your User Name" required value="<?php echo $user['usernames'] ?>"><br>
+                <input type="text" class="form-control" placeholder="Enter Your User Name" required value="<?php echo $user['usernames'] ?>" readonly><br>
             </div>
             
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Enter Your Email Address" required value="<?php echo $user['email'] ?>"><br>
+                <input type="email" class="form-control" placeholder="Enter Your Email Address" required value="<?php echo $user['email'] ?>" readonly><br>
             </div>
            
             <div class="form-group">
-                <input type="text" class="form-control" name="" id="" placeholder="Enter Your Position" value="<?php echo $user['position'] ?>"><br>
+                <input type="text" class="form-control" name="" id="" placeholder="Enter Your Position" value="<?php echo $user['position'] ?>" readonly><br>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter Your Gender" required value="<?php echo $user['gender'] ?>"><br>
+                <input type="text" class="form-control" placeholder="Enter Your Gender" required value="<?php echo $user['gender'] ?>" readonly><br>
             </div>
            <div class="form-group">
-                <input type="tel" class="form-control" placeholder="Phone Number" required value="<?php echo $user['phone_number'] ?>"><br>
+                <input type="tel" class="form-control" placeholder="Phone Number" required value="<?php echo $user['phone_number'] ?>" readonly><br>
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter Home Address" required value="<?php echo $user['address'] ?>"><br>
+                <input type="text" class="form-control" placeholder="Enter Home Address" required value="<?php echo $user['address'] ?>" readonly><br>
             </div>
            
             <div class="form-group">

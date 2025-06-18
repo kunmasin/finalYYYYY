@@ -26,25 +26,8 @@ if($conn->query($sql) == TRUE){
 $conn->close();
 
 ?>
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "student_discipline";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM student_users";
-$result = $conn->query($sql);
-?>
 <!DOCTYPE html> 
-<php>
+<html>
     <head>
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -83,49 +66,32 @@ $result = $conn->query($sql);
                          </div>
                          
             <div class="content">
-            <div class="container text-center">
-            <h1 class="text-dark page-header">STUDENTS DETAILS</h1>
+            <div class="container">
+            <h1 class="text-dark page-header">MAKE JUDGEMENT</h1>
+
+            <form action="" method="post">
+                <div class="form-group">
+                    <label for="">Case Name</label><br>
+                    <input type="text" class="form-control" placeholder="Enter Case Name">
+                </div>
 
 
-            <table class="table table-striped table-bordered table-hover">
-            <thead>
-            <tr>
-                <th>I/D</th>
-                <th>Full name</th>
-                <th>Gender</th>
-                <th>Phone Number</th>
-                <th>Email</th>
-                <th>Matric No</th>
-                <th>Course</th>
-                <th>Faculty</th>
-                <th>Motto</th>
-            </tr>
-            </thead>
+                <div class="form-group">
+                    <label for="">Offender's Name</label><br>
+                    <input type="text" class="form-control" placeholder="Enter Offender's Name">
+                </div>
 
-            <tr>
-            <?php
-    if ($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row["id"]. "</td>";
-        echo "<td>" . $row["names"]. "</td>";
-        echo "<td>" . $row["gender"]. "</td>";
-        echo "<td>" . $row["phoneNumber"]. "</td>";
-        echo "<td>" . $row["email"]. "</td>";
-        echo "<td>" . $row["matric_no"]. "</td>";
-        echo "<td>" . $row["course"]. "</td>";
-        echo "<td>" . $row["faculty"]. "</td>";
-        echo "<td>" . $row["status"] . "</td>";
 
-    }
-    } else {
-      echo "<tr><td colspan='3'>No users found</td></tr>";
-    }
-    ?>
-        </tr>
+                <div class="form-group">
+                    <label for="">Final Judgement</label><br>
+                    <textarea class="form-control" name="" id="" placeholder="Write the Judgement Details..."></textarea>
+                </div>
 
-        </table>
+                <button class="form-control btn btn-primary">SUBMIT JUDGEMENT</button>
 
+            </form>
+
+           
         </div>
         </div>
         <script>
@@ -135,4 +101,4 @@ $result = $conn->query($sql);
             }
         </script>
         </body>
-        </php>
+        </html>

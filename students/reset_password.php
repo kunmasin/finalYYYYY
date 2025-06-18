@@ -34,7 +34,7 @@ if (!$data) {
 
     <div class="form-group">
     <label>New Password</label>
-    <input type="password" name="new_password" class="form-control placeholder="New Password" required>
+    <input type="password" name="new_password" class="form-control" placeholder="New Password" required>
     </div>
     <div class="form-group">
     <button type="submit" class="form-control text-white bg-dark">Update Password</button>
