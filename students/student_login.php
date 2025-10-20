@@ -69,7 +69,7 @@
         <footer class="text-center">&#169; <span style="font-size: 15px;"><?php 
                                         date_default_timezone_set("Africa/Lagos");
                                         $today=  date("Y")." Students Disciplinary Actions :";
-                                        echo $today?></span> <span>Developed By: <a class="developer" href="https://we-solve-it.netlify.app/">WE-SOLVE-IT SOLUTIONS</a></span> </footer>
+                                        echo $today?></span> <span>Developed By: <a class="developer" href="https://we-solve-it.netlify.app/">ONIYE ABDULLAHI MASUD (21/02/SE/2/001) SOFTWARE ENGINEERING DEPEARTMENT</a></span> </footer>
 
 
         <?php 

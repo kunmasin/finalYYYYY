@@ -21,6 +21,9 @@ $namesErr = $emailErr = $passwordErr = $lvl_admittedErr = $dobErr = $matric_noEr
 $names = $email = $passwords = $lvl_admitted = $dob = $matric_no = $course = $faculty = $gender = $phoneNumber = $image = $target_file = "";
 $uploadOk = 1;
 
+
+include("student_log_con.php");
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Names Validation
     if (empty($_POST["names"])) {
@@ -146,6 +149,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Registration successful!";
         */
     }
+    $sql="INSERT INTO `student_users` (names, email, passwords, lvl_admitted, dob, matric_no, course, faculty, gender, phoneNumber, image)
+ VALUES
+('$names', '$email', '$passwords', '$lvl_admitted', '$dob', '$matric_no', '$course', '$faculty', '$gender', '$phoneNumber', '$target_file')";
+if($conn ->query($sql) == TRUE){
+   // echo "Details Recorded Successfully";
+}else{
+    echo "Error: " .$sql."<br>".$conn->error;
+}
 }
 
 function test_input($data) {
@@ -158,109 +169,114 @@ function test_input($data) {
 <!--End of Php Reg Code-->
             <div class="container">
             <h1 class="text-dark text-center page-header mt-5">REGISTERATION PAGE</h1>
-            <form action="student_register.php" method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-            <div class="container">
-                <div class="form-group">
-                <label for="">Full Name</label>
-                <input type="text" class="form-control" name="names" placeholder="Enter Your Full Name" value="<?php echo $names; ?>" required>
-                <br>
-            </div>
-            <div class="form-group">
-            <label for="">E-mail Addess</label>
-                <input type="email" class="form-control" name="email" placeholder="Enter Your Email Address" value="<?php echo $email; ?>" required>
-                <br>
-            </div>
-            <div class="form-group">
-            <label for="">Click to Insert Your Profile Image</label>
-                <input type="file" class="form-control" name="image" value="<?php echo $image; ?>"><br>
-            </div>
-            <div class="form-group">
-            <label for="">Date of Birth</label>
-                <input type="date" class="form-control" name="dob" id="" placeholder="Enter Your Date of Birth" value="<?php echo $dob; ?>">
-                <br>
-            </div>
+            <form action="student_register.php" method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+  <div class="container">
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label>Full Name</label>
+        <input type="text" class="form-control" name="names" placeholder="Enter Your Full Name" value="<?php echo $names; ?>" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label>E-mail Address</label>
+        <input type="email" class="form-control" name="email" placeholder="Enter Your Email" value="<?php echo $email; ?>" required>
+      </div>
+    </div>
 
-            <div class="form-group">
-            <label for="">Role in the University</label>
-             <select id="role" name="role" class="form-control">
-                  <option value="Role" disabled selected>Role</option>
-                  <option value="student">Student</option>
-                  <option value="teacher">Teacher</option>
-                 </select>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label>Phone Number</label>
+        <input type="tel" class="form-control" name="phoneNumber" placeholder="Enter Your Phone Number" value="<?php echo $phoneNumber; ?>" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Matric Number</label>
+        <input type="text" class="form-control" name="matric" placeholder="Matric Number" value="<?php echo $matric_no; ?>" required>
+      </div>
+    </div>
 
-            </div>
-            <div class="form-group">
-            <label for="">Phone Number</label>
-                <input type="tel" class="form-control" name="phoneNumber" placeholder="Enter Your Phone Number" value="<?php echo $phoneNumber; ?>" required>
-                <br>
-            </div>
-           <div class="form-group">
-           <label for="">Matric Number</label>
-                <input type="text" class="form-control" name="matric" placeholder="Matric Number" value="<?php echo $matric_no; ?>" required>
-                <br>
-            </div>
-            <div class="form-group">
-            <label for="">Course of Study</label>
-                <select class="form-control" id="course" name="course" value="<?php echo $course; ?>">
-                    <option selected disabled>Select Your Course of Study</option>
-                    <option>Software Engineering</option>
-                    <option>Computer Science</option>
-                    <option>Cyber Security</option>
-                    <option>Economics</option>
-                    <option>Accounting</option>
-                    <option>International Relation</option>
-                    <option>English</option>
-                    <option>Mass Communication</option>
-                    <option>Microbiology</option>
-                </select><br>
-            </div>
-            <div class="form-group">
-            <label for="">Faculty</label>
-                <select class="form-control" name="faculty" value="<?php echo $faculty; ?>">
-                    <option selected disabled>Select Your Faculty </option>
-                    <option>Science and Computing</option>
-                    <option>Humanaties and Management</option>
-                </select>
-            </div>
-            <div class="form-group">
-            <label for="">Level of Admission</label>
-                <select class="form-control" id='level' name="level" value="<?php echo $lvl_admitted; ?>">
-                    <option selected disabled>Choose Level of Admission</option>
-                    <option>100 Level</option>
-                    <option>200 Level</option>
-                </select>    
-            </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label>Date of Birth</label>
+        <input type="date" class="form-control" name="dob" value="<?php echo $dob; ?>">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Upload Profile Image</label>
+        <input type="file" class="form-control" name="image" value="<?php echo $image; ?>">
+      </div>
+    </div>
 
-            <div class="form-group">
-            <label for="">Gender Type</label>
-                <select class="form-control" id='gender' name="gender" value="<?php echo $gender; ?>">
-                    <option selected disabled>Select Your Gender</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                </select>    
-            </div>
-            
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label>Course of Study</label>
+        <select class="form-control" name="course" value="<?php echo $course; ?>">
+          <option selected disabled>Select Course</option>
+          <option>Software Engineering</option>
+          <option>Computer Science</option>
+          <option>Cyber Security</option>
+          <option>Economics</option>
+          <option>Accounting</option>
+          <option>International Relation</option>
+          <option>English</option>
+          <option>Mass Communication</option>
+          <option>Microbiology</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Faculty</label>
+        <select class="form-control" name="faculty" value="<?php echo $faculty; ?>">
+          <option selected disabled>Select Faculty</option>
+          <option>Science and Computing</option>
+          <option>Humanaties and Management</option>
+        </select>
+      </div>
+    </div>
 
-            <div class="form-group">
-            <label for="">Password</label>
-                <input type="password" class="form-control" name="passwords" placeholder="Create Password" required><br>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="form-control text-white bg-dark" value="REGISTER"> <a href="..\students\student_login.php"></a>
-            </div>
-            </div>
-        </form>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label>Level of Admission</label>
+        <select class="form-control" name="level" value="<?php echo $lvl_admitted; ?>">
+          <option selected disabled>Choose Level</option>
+          <option>100 Level</option>
+          <option>200 Level</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Gender</label>
+        <select class="form-control" name="gender" value="<?php echo $gender; ?>">
+          <option selected disabled>Select Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+    </div>
 
-                <h6 class="text-center"> If you have registered already, click on the link --> <a class="text-danger" href="..\students\student_login.php">LOGIN</a></h6>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label>Role in the University</label>
+        <select class="form-control" name="role">
+          <option value="Role" disabled selected>Role</option>
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Password</label>
+        <input type="password" class="form-control" name="passwords" placeholder="Create Password" required>
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <input type="submit" class="btn btn-dark w-100" value="REGISTER">
+    </div>
+  </div>
+</form>
+
+                <h6 class="text-center"> If you have registered already, click on the link --> <a class="text-danger" href="../logins.php">LOGIN</a></h6>
         </div>
 
         <footer class="text-center">&#169; <span style="font-size: 15px;"><?php 
                                         date_default_timezone_set("Africa/Lagos");
                                         $today=  date("Y")." Students Disciplinary Actions :";
-                                        echo $today?></span> <span>Developed By: <a class="developer" href="https://we-solve-it.netlify.app/">WE-SOLVE-IT SOLUTIONS</a></span> </footer>
+                                        echo $today?></span> <span>Developed By: <a class="developer" href="https://we-solve-it.netlify.app/">ONIYE ABDULLAHI MASUD (21/02/SE/2/001) SOFTWARE ENGINEERING DEPEARTMENT</a></span> </footer>
 
-<?php
-include("student_reg_con.php");
-?>
         </body>
         </html>

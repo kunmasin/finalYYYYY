@@ -4,11 +4,11 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include ("lecturerLogConnect.php"); // Include lecturer connection first
-if (!isset($_COOKIE['lecturers'])){
-    header('location: lecturerLogin.php');
+if (!isset($_COOKIE['lecturer_users'])){
+    header('location: ../logins.php');
     exit;
 }
-$sql="SELECT * FROM `lecturer_users` WHERE lecturer_name = '".$_COOKIE['lecturers']."'";
+$sql="SELECT * FROM `lecturer_users` WHERE email = '".$_COOKIE['lecturer_users']."'";
 $user = array();
 
 if($conn->query($sql) == TRUE){
@@ -18,7 +18,7 @@ if($conn->query($sql) == TRUE){
            $user = $row; 
         }
     } else {
-        header('location: lecturerLogin.php');
+        header('location: ../logins.php');
         exit;
     }
 } else {
@@ -56,27 +56,7 @@ $conn->close(); // Close connection once all operations are done
         <title>Dashboard</title>
         
     </head>
-        <body>
-            <button class="toggle-button" onclick="toggleSidebar()">
-            <i class="fas fa-bars"></i> Menu
-        </button>
-
-            <div class="col-xl-2 col-xl-2 col-xl-2 col-md-4 fixed-top sidebar" id="sidebar">
-                <h1 class="navbar-brand text-light d-block mx-auto  py-3 mb-4 bottom-border" style="font-size: 15px;">LECTURER DASHBOARD</h1>
-                <div class="bottom-border pb-3">
-                    <h6 class="text-light"><?php echo $user['lecturer_name'] ?></h6>
-                </div>
-                <ul class="navbar-nav flex-column">
-                <li class="nav-item"><a href="../lecturer/lecturerDashboard.php" class="nav-link cool p-2 mb-4 sidebar-link current"><i class="fas fa-home text-light fa-lg mr-3"></i>DASHBOARD</a></li>
-                    <li class="nav-item"><a href="../lecturer/lecturerComplaints.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>COMPLAINTS</a></li>
-                    <li class="nav-item"><a href="../lecturer/lecturerGeneralNotice.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>GENERAL NOTICE</a></li>
-                    <li class="nav-item"><a href="../lecturer/lecturerStudents.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i> STUDENTS TABLE</a></li>
-                    <li class="nav-item"><a href="../lecturer/lecturerTable.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i>PROFILE</a></li>
-                    <li class="nav-item"><a href="../lecturer/lecturerSettings.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i> SETTINGS</a></li>
-                    <li class="nav-item"><a href="../lecturer/lecturerLogout.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-file-alt text-light fa-lg mr-3"></i> LOGOUT</a></li>
-                </ul>
-            </div>
-                
+       <?php include ("lecturer_sidebar.php"); ?>         
     <div class="content">
     <h1 class="text-dark text-center page-header">STAFF  / LECTURER COMPLAIN</h1>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">

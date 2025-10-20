@@ -21,6 +21,10 @@ $lecturer_name_Err  = $passwordsErr = $emailErr = $phone_numberErr = $genderErr 
 $lecturer_name = $passwords = $email = $phone_number = $gender = $office =  $address = $image = $target_file = "";
 $uploadOk = 1;
 
+
+
+include("lecturerLogConnect.php");
+
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if (empty($_POST["lecturer_name"])){
         $lecturer_name_Err= "Lecturer name is required";
@@ -120,6 +124,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         echo "Registration successful!";
         */
     }
+    $sql="INSERT INTO `lecturer_users` (lecturer_name,  passwords,  email, phone_number, gender, office, address, image) VALUES ('$lecturer_name', '$passwords', '$email', '$phone_number', '$gender', '$office', '$address', '$target_file')";
+if($conn ->query($sql) == TRUE){
+   // echo "Details Recorded Successfully";
+}else{
+    echo "Error: " .$sql."<br>".$conn->error;
+}
    
     }
 function test_input($data){
@@ -192,16 +202,13 @@ function test_input($data){
             </div>
         </form>
 
-                <h6 class="text-center"> If you have registered already, click on the link --> <a class="text-danger" href="..\lecturer\lecturerLogin.php">LOGIN</a></h6>
+                <h6 class="text-center"> If you have registered already, click on the link --> <a class="text-danger" href="../logins.php">LOGIN</a></h6>
         </div>
 
         <footer class="text-center">&#169; <span style="font-size: 15px;"><?php 
                                         date_default_timezone_set("Africa/Lagos");
                                         $today=  date("Y")." Students Disciplinary Actions :";
-                                        echo $today?></span> <span>Developed By: <a class="developer" href="https://we-solve-it.netlify.app/">WE-SOLVE-IT SOLUTIONS</a></span> </footer>
+                                        echo $today?></span> </span> <span>Developed By: <a class="developer" href="https://we-solve-it.netlify.app/">ONIYE ABDULLAHI MASUD (21/02/SE/2/001) SOFTWARE ENGINEERING DEPEARTMENT</a></span> </footer>
 
-<?php
-include("lecturerRegConn.php");
-?>
         </body>
         </html>

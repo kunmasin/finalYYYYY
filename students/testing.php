@@ -18,7 +18,10 @@ include ("cookie.php");
     </head>
         <body>
             <!-- Toggle button -->
-     
+        <button type="button" id="sidebarCollapse" class="btn btn-primary icon">
+            <i class="fas fa-bars"></i>
+        </button>
+
                          <?php include("student_sidebar.php") ;?>
                          <div class="content">
                         <div>

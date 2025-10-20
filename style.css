@@ -82,6 +82,54 @@ img{
     color: rgba(255, 255, 255, 0);
 }
 
+/* Adjust the margin when the sidebar is shown */
+#inDline.show ~ .content {
+    margin-left: 300px; /* The width of the sidebar */
+}
+
+#inDline {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    width: 300px;
+    height: 750px;
+    position: fixed;
+    top: 0;
+    left: -300px; /* Initially hidden */
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+#inDline.show {
+    left: 0; /* Slide in */
+}
+
+/* Close Icon Styles */
+#closeSidebar {
+    background: white;
+    border: none;
+    border-radius: 10%;
+    color: black;
+    font-size: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    align-self: flex-end; /* Align to the top-right corner */
+}
+
+
+.inDline{
+    color: white;
+    background-color: rgb(5, 29, 116);
+    width: 300px;
+    height: 750px;
+    margin-left: -8px; 
+    margin-top: -20px;
+}
+
+
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
     .sidebar {

@@ -1,14 +1,14 @@
 <?php 
-include ("student_log_con.php");
-if (!isset($_COOKIE['student_users'])){
-    header('location: student_login.php');
+include ("adminLogConnect.php");
+if (!isset($_COOKIE['admin_users'])){
+    header('location: adminLogin.php');
     exit;
 }
-$sql="SELECT * FROM `student_users` WHERE email LIKE '".$_COOKIE['student_users']."'";
+$sql="SELECT * FROM `admin_users` WHERE email LIKE '".$_COOKIE['admin_users']."'";
 $user = array();
 
 if($conn->query($sql) == TRUE){
-    $sql="SELECT * FROM `student_users` WHERE email LIKE '".$_COOKIE['student_users']."'";
+    $sql="SELECT * FROM `admin_users` WHERE email LIKE '".$_COOKIE['admin_users']."'";
         $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         // output data of each row
@@ -16,7 +16,7 @@ if($conn->query($sql) == TRUE){
            $user = $row; 
         }
     }else{
-        header('location: student_login.php');
+        header('location: adminLogin.php');
         exit;
     }
     

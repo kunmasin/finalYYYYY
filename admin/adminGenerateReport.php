@@ -1,21 +1,22 @@
 <?php
 include ("adminLogConnect.php");
-if (!isset($_COOKIE['admin'])){
-    header('location: adminLogin.php');
+include ("cookie.php");
+if (!isset($_COOKIE['admin_users'])){
+    header('location: ../logins.php');
     exit;
 }
-$sql="SELECT * FROM `admin_users` WHERE usernames LIKE '".$_COOKIE['admin']."'";
+$sql="SELECT * FROM `admin_users` WHERE email LIKE '".$_COOKIE['admin_users']."'";
 $user = array();
 
 if($conn->query($sql) == TRUE){
-    $sql="SELECT * FROM `admin_users` WHERE usernames LIKE '".$_COOKIE['admin']."'";
+    $sql="SELECT * FROM `admin_users` WHERE email LIKE '".$_COOKIE['admin_users']."'";
         $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
            $user = $row;
         }
     }else{
-        header('location: adminLogin.php');
+        header('location: ../logins.php');
         exit;
     }
 
@@ -162,28 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-<button class="toggle-button" onclick="toggleSidebar()">
-    <i class="fas fa-bars"></i> Menu
-</button>
-
-<div class="col-xl-2 col-xl-2 col-xl-2 col-md-4 fixed-top sidebar" id="sidebar">
-                            <img src="../imgs/Ahman.webp" class="school-logo" alt="">
-                            <h1 class="navbar-brand text-light d-block mx-auto  py-3 mb-4 bottom-border" style="font-size: 15px;">ADMIN DASHBOARD</h1>
-                            <div class="bottom-border pb-3">
-                            <!--<h6 class="text-light"><?php echo $user['fullname'] ?></h6>-->
-                            </div>
-                            <ul class="navbar-nav flex-column">
-                                <li class="nav-item"><a href="..\admin\adminDashboard.php" class="nav-link cool p-2 mb-3 sidebar-link current"><i class="fas fa-home text-light fa-lg mr-3"></i>DASHBOARD</a></li>
-                                <!--<li class="nav-item"><a href="..\admin\adminUsers.php" class="nav-link cool p-2 mb-3 sidebar-link current"><i class="fas fa-user text-light fa-lg mr-3"></i>USERS</a></li>-->
-                                <li class="nav-item"><a href="..\admin\adminComplaints.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i> COMPLAINTS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminGenerateReport.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-file text-light fa-lg mr-3"></i>GENERATE REPORT</a></li>
-                                <li class="nav-item"><a href="..\admin\adminStudents.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-users text-light fa-lg mr-3"></i> STUDENTS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminLecturers.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-users text-light fa-lg mr-3"></i> LECTURERS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminSettings.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i> SETTINGS</a></li>
-                                <li class="nav-item"><a href="..\admin\adminLogout.php" class="nav-link cool p-2 mb-3 sidebar-link"><i class="fas fa-file-alt text-light fa-lg mr-3"></i> LOGOUT</a></li>
-                            </ul>
-                         </div>
-                         
+<?php include("admin_sidebar.php"); ?>                         
 <div class="content">
     <div class="container">
         <h1 class="text-center">Generate Reports for a Student</h1>

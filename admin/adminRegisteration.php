@@ -207,7 +207,7 @@ function test_input($data){
             </div>
         </form>
 
-                <h6 class="text-center"> If you have registered already, click on the link --> <a class="text-danger" href="..\admin\adminLogin.php">LOGIN</a></h6>
+                <h6 class="text-center"> If you have registered already, click on the link --> <a class="text-danger" href="../logins.php">LOGIN</a></h6>
         </div>
 
         <footer class="text-center">&#169; <span style="font-size: 15px;"><?php 

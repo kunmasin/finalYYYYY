@@ -1,14 +1,14 @@
 <?php 
 include ("lecturerLogConnect.php");
-if (!isset($_COOKIE['lecturers'])){
-    header('location: lecturerLogin.php');
+if (!isset($_COOKIE['lecturer_users'])){
+    header('location: ../logins.php');
     exit;
 }
-$sql="SELECT * FROM `lecturer_users` WHERE lecturer_name LIKE '".$_COOKIE['lecturers']."'";
+$sql="SELECT * FROM `lecturer_users` WHERE email LIKE '".$_COOKIE['lecturer_users']."'";
 $user = array();
 
 if($conn->query($sql) == TRUE){
-    $sql="SELECT * FROM `lecturer_users` WHERE lecturer_name LIKE '".$_COOKIE['lecturers']."'";
+    $sql="SELECT * FROM `lecturer_users` WHERE email LIKE '".$_COOKIE['lecturer_users']."'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         // output data of each row
@@ -16,7 +16,7 @@ if($conn->query($sql) == TRUE){
            $user = $row; 
         }
     }else{
-        header('location: lecturerLogin.php');
+        header('location: ../logins.php');
         exit;
     }
     
@@ -40,49 +40,26 @@ $conn->close();
         <title>Dashboard</title>
         
     </head>
-        <body>
-            <!-- Toggle button -->
-        <button class="toggle-button" onclick="toggleSidebar()">
-            <i class="fas fa-bars"></i> Menu
-        </button>
-
-                        <!-- Sidebar-->
-                        <div class="col-xl-2 col-xl-2 col-xl-2 col-md-4 fixed-top sidebar" id="sidebar">
-                <img src="../imgs/Ahman.webp" class="school-logo" alt="">
-                <h1 class="navbar-brand text-light d-block mx-auto  py-3 mb-4 bottom-border" style="font-size: 15px;">LECTURER DASHBOARD</h1>
-                <div class="bottom-border pb-3">
-                    <!-- <h6 class="text-light"><?php echo $user['lecturer_name'] ?></h6> -->
-                </div>
-                <ul class="navbar-nav flex-column">
-                <li class="nav-item"><a href="../lecturer/lecturerDashboard.php" class="nav-link cool p-2 mb-4 sidebar-link current"><i class="fas fa-home text-light fa-lg mr-3"></i>DASHBOARD</a></li>
-                    <li class="nav-item"><a href="../lecturer/lecturerComplaints.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>COMPLAINTS</a></li>
-                    <li class="nav-item"><a href="../lecturer/lecturerGeneralNotice.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>GENERAL NOTICE</a></li>
-                    <li class="nav-item"><a href="../lecturer/lecturerStudents.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i> STUDENTS TABLE</a></li>
-                    <li class="nav-item"><a href="../lecturer/lecturerTable.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i>PROFILE</a></li>
-                    <li class="nav-item"><a href="../lecturer/lecturerSettings.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i> SETTINGS</a></li>
-                    <li class="nav-item"><a href="../lecturer/lecturerLogout.php" class="nav-link cool p-2 mb-4 sidebar-link"><i class="fas fa-file-alt text-light fa-lg mr-3"></i> LOGOUT</a></li>
-                </ul>
-            </div>
-            
+        <?php include ("lecturer_sidebar.php") ;?>    
                          <div class="content">
             <div class="container">
                 <h1 class="text-dark text-center">GENERAL NOTICE</h1>
                 <h3 class="mt-5">Notice for all !!! </h3>
-                <p>The University Management is delighted to inform you that you have been given appointment into , ILORIN, KWARA STATE with the following details:</p>
+                <p>The University Management is delighted to inform you that you have been given appointment as the:</p>
                 <li> <strong>Office:</strong> <span><?php echo $user['office']?></span></li>
                 <li><strong>Adress:</strong> <span><?php echo $user['address']?></span></li>
                 <li><strong>Qalificatiion:</strong> <span>Bsc, Msc, PhD</span></li>
                 <li><strong>Duration of Appointment:</strong> <span>4 Years</span></li>
                 <br>
-                <h5>The confirmation of the provisonal admission is subject to your possession of the minimum entry requirements or the programme to which you have been offered admission with the following conditions:</h5>
+                <!--<h5>The confirmation of the provisonal admission is subject to your possession of the minimum entry requirements or the programme to which you have been offered admission with the following conditions:</h5>
                 <li>This offer of provisional admission is subject to your acceptance by completing the registration process as prescribed by the institution.</li>
                 <li>You are required to present this admission letter at the time of registration, alongside other required documents.</li>
                 <li>Failure to complete the registration process within the stipulated time frame may result in the forfeiture of your admission.</li>
-
-                <h5 class="mt-5">Next Steps</h5>
+-->
+                <!--<h5 class="mt-5">Next Steps</h5>
                 <li>Pay the acceptance fee as directed by the Abdul Ventures</li>
                 <li>Proceed with the registration and documentation at the university.</li>
-                <li>Attend the orientation program organized by the university.</li>
+                <li>Attend the orientation program organized by the university.</li> -->
             <h5 class="mt-5 text-success text-center">CONGRATULATIONS ON YOUR APPOINTMENT, WE WISH YOU A HAPPY STAY AND HAPPY ENDING, BEST OF LUCK !!!!</h5>
 
 
